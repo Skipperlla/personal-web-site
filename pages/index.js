@@ -3,8 +3,9 @@ import Header from "../components/Index/Header";
 import Projects from "../components/Index/Projects";
 import ResponsiveFollowMe from "../components/Index/ResponsiveFollowMe";
 import Technologies from "../components/Index/Technologies";
+import { GetRepository } from "../lib/Github";
 
-export default function Home({ repos }) {
+export default function Home({ repos, status }) {
   return (
     <>
       <NextSeo
@@ -17,7 +18,7 @@ export default function Home({ repos }) {
       <div className=" pt-12">
         <Header />
         <Technologies />
-        <Projects repos={repos.repos} status={repos.status} />
+        <Projects repos={repos} status={status} />
         <ResponsiveFollowMe />
       </div>
     </>
@@ -25,7 +26,8 @@ export default function Home({ repos }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/Github");
-  const repos = await res.json();
-  return { props: { repos } };
+  const response = await GetRepository();
+  const repos = await response.json();
+  const status = response.status;
+  return { props: { repos, status } };
 };
