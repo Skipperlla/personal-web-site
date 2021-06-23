@@ -1,0 +1,67 @@
+{
+  "name": "Skipperlla",
+  "FullName": "Ömer Esmer",
+  "explanation": "Hello my name is Ömer I am from Turkey and I am self learning web developer.I ve recently started building complex web apps using React,Next.js and Tailwind CSS.",
+  "socials": [
+    {
+      "href": "https://discord.gg/DAjTuF2a",
+      "color": "#738ADB"
+    },
+    {
+      "href": "https://twitter.com/Skipperlla",
+      "color": "#1DA1F2"
+    },
+    {
+      "href": "https://github.com/Skipperlla",
+      "color": "#718096"
+    },
+
+    {
+      "href": "https://instagram.com/Skipperlla",
+      "color": "#F77737"
+    },
+    {
+      "href": "https://www.linkedin.com/in/%C3%B6meresmer/",
+      "color": "#0072b1"
+    },
+
+    {
+      "href": "mailto:oesmer437@gmail.com",
+      "color": "#EA4335"
+    }
+  ],
+  "techsName": [
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "TypeScript",
+    "Graphql",
+    "MongoDb",
+    "Yarn",
+    "TailwindCSS",
+    "Git",
+    "Figma"
+  ],
+  "techsSVG": [
+    "JavaScript.svg",
+    "Html.svg",
+    "CSS.svg",
+    "Bootstrap.svg",
+    "React.svg",
+    "Next.svg",
+    "Nodejs.svg",
+    "Expressjs.svg",
+    "TypeScript.svg",
+    "Graphql.svg",
+    "MongoDB.svg",
+    "Yarn.svg",
+    "TailwindCSS.svg",
+    "Git.svg",
+    "Figma.svg"
+  ]
+}
