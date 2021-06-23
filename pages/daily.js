@@ -1,9 +1,9 @@
 import React from "react";
 
 import { NextSeo } from "next-seo";
-import Left from "../components/Daily/Left";
-import Right from "../components/Daily/Right";
-import OlderSongs from "../components/Daily/OlderSongs";
+import Left from "../components/daily/Left";
+import Right from "../components/daily/Right";
+import OlderSongs from "../components/daily/OlderSongs";
 export default function Daily({
   currentlyPlaying,
   RecentlyPlayed,
@@ -43,15 +43,27 @@ export default function Daily({
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const currentlyPlayingFetch = await fetch(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/nowPlaying`
+    `${
+      process.env.NODE_ENV === "production"
+        ? process.env.PUBLIC_API_ENDPOIN
+        : process.env.LOCAL_API_ENDPOINT
+    }/nowPlaying`
   );
   const RecentlyPlayedFetch = await fetch(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/recentlyPlayed`
+    `${
+      process.env.NODE_ENV === "production"
+        ? process.env.PUBLIC_API_ENDPOIN
+        : process.env.LOCAL_API_ENDPOINT
+    }/recentlyPlayed`
   );
   const MyPlayListsFetch = await fetch(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/myPlayLists`
+    `${
+      process.env.NODE_ENV === "production"
+        ? process.env.PUBLIC_API_ENDPOIN
+        : process.env.LOCAL_API_ENDPOINT
+    }/myPlayLists`
   );
   const currentlyPlaying = await currentlyPlayingFetch.json();
   const RecentlyPlayed = await RecentlyPlayedFetch.json();
