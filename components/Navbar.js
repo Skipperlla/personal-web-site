@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import NavList from "../config/ListItems.json";
-import RenderThemeChanger from "../utils/renderThemeChanger";
+import RenderThemeChanger from "../utils/RenderThemeChanger";
 
 const Navbar = ({ setIsOpen, isOpen }) => {
   const [mounted, setMounted] = useState(false);
