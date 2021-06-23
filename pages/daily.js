@@ -1,14 +1,10 @@
 import React from "react";
-
+import { getNowPlaying, recentlyPlayed } from "../lib/Spotify";
 import { NextSeo } from "next-seo";
-import Left from "../components/daily/Left";
-import Right from "../components/daily/Right";
-import OlderSongs from "../components/daily/OlderSongs";
-export default function Daily({
-  currentlyPlaying,
-  RecentlyPlayed,
-  MyPlayLists,
-}) {
+import Left from "../components/Daily/Left";
+import Right from "../components/Daily/Right";
+import OlderSongs from "../components/Daily/OlderSongs";
+export default function Daily({ status, nowPlaying, RecentlyPlayed }) {
   return (
     <>
       <NextSeo
@@ -26,17 +22,17 @@ export default function Daily({
           </div>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ">
             <Left
-              artist={currentlyPlaying.artist}
-              name={currentlyPlaying.name}
-              spotifyURL={currentlyPlaying.spotifyURL}
-              date={currentlyPlaying.timestamp}
-              isPlaying={currentlyPlaying.isPlaying}
+              artist={nowPlaying.item.album.artists[0].name}
+              name={nowPlaying.item.name}
+              spotifyURL={nowPlaying.item.external_urls.spotify}
+              date={nowPlaying.timestamp}
+              isPlaying={nowPlaying.is_playing}
             />
-            <Right MyPlayLists={MyPlayLists} />
+            <Right />
           </div>
         </div>
         <div className="pt-10">
-          <OlderSongs RecentlyPlayed={RecentlyPlayed} />
+          <OlderSongs RecentlyPlayed={RecentlyPlayed.items} status={status} />
         </div>
       </div>
     </>
@@ -44,29 +40,18 @@ export default function Daily({
 }
 
 export const getStaticProps = async () => {
-  const currentlyPlayingFetch = await fetch(
-    `${
-      process.env.NODE_ENV === "production"
-        ? process.env.PUBLIC_API_ENDPOIN
-        : process.env.LOCAL_API_ENDPOINT
-    }/nowPlaying`
-  );
-  const RecentlyPlayedFetch = await fetch(
-    `${
-      process.env.NODE_ENV === "production"
-        ? process.env.PUBLIC_API_ENDPOIN
-        : process.env.LOCAL_API_ENDPOINT
-    }/recentlyPlayed`
-  );
-  const MyPlayListsFetch = await fetch(
-    `${
-      process.env.NODE_ENV === "production"
-        ? process.env.PUBLIC_API_ENDPOIN
-        : process.env.LOCAL_API_ENDPOINT
-    }/myPlayLists`
-  );
-  const currentlyPlaying = await currentlyPlayingFetch.json();
+  const RecentlyPlayedFetch = await recentlyPlayed();
+  const nowPlayingFetch = await getNowPlaying();
+
   const RecentlyPlayed = await RecentlyPlayedFetch.json();
-  const MyPlayLists = await MyPlayListsFetch.json();
-  return { props: { currentlyPlaying, RecentlyPlayed, MyPlayLists } };
+  const nowPlaying = await nowPlayingFetch.json();
+
+  const status = RecentlyPlayedFetch.status;
+  return {
+    props: {
+      RecentlyPlayed,
+      status,
+      nowPlaying,
+    },
+  };
 };
