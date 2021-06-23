@@ -1,9 +1,9 @@
 import React from "react";
 
 import { NextSeo } from "next-seo";
-import Left from "../components/daily/Left";
-import Right from "../components/daily/Right";
-import OlderSongs from "../components/daily/OlderSongs";
+import Left from "../components/Daily/Left";
+import Right from "../components/Daily/Right";
+import OlderSongs from "../components/Daily/OlderSongs";
 export default function Daily({
   currentlyPlaying,
   RecentlyPlayed,
@@ -45,12 +45,14 @@ export default function Daily({
 
 export const getServerSideProps = async () => {
   const currentlyPlayingFetch = await fetch(
-    `http://localhost:3000/api/nowPlaying`
+    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/nowPlaying`
   );
   const RecentlyPlayedFetch = await fetch(
-    `http://localhost:3000/api/recentlyPlayed`
+    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/recentlyPlayed`
   );
-  const MyPlayListsFetch = await fetch(`http://localhost:3000/api/myPlayLists`);
+  const MyPlayListsFetch = await fetch(
+    `${process.env.NEXT_PUBLIC_LOCAL_API_ENDPOINT}/myPlayLists`
+  );
   const currentlyPlaying = await currentlyPlayingFetch.json();
   const RecentlyPlayed = await RecentlyPlayedFetch.json();
   const MyPlayLists = await MyPlayListsFetch.json();
