@@ -8,7 +8,6 @@ import { Context } from "../context/Context";
 import { ToastError, ToastSuccess } from "../utils/Messages";
 import os from "os";
 export default function Login({ IPAdress, mac }) {
-  console.log(mac);
   const { user, setToast } = useContext(Context);
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
@@ -38,12 +37,15 @@ export default function Login({ IPAdress, mac }) {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
   useEffect(() => {
-    if (IPAdress != process.env.NEXT_PUBLIC_IP) {
+    if (
+      IPAdress != process.env.NEXT_PUBLIC_IP ||
+      mac.eth0[0].mac != process.env.NEXT_PUBLIC_MAC
+    ) {
       router.push("/404");
     } else if (user) {
       router.push("/");
     }
-  }, [IPAdress, router, user]);
+  }, [IPAdress, mac.eth0, router, user]);
   return (
     <>
       <div className="flex flex-col justify-center items-center h-screen">
