@@ -6,7 +6,9 @@ import { auth } from "../firebase/client";
 import { useContext } from "react";
 import { Context } from "../context/Context";
 import { ToastError, ToastSuccess } from "../utils/Messages";
-export default function Login({ IPAdress }) {
+import os from "os";
+export default function Login({ IPAdress, mac }) {
+  console.log(mac);
   const { user, setToast } = useContext(Context);
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
@@ -86,5 +88,6 @@ export default function Login({ IPAdress }) {
 
 export const getStaticProps = async () => {
   const IPAdress = await publicIP.v4();
-  return { props: { IPAdress } };
+  const mac = os.networkInterfaces();
+  return { props: { IPAdress, mac } };
 };

@@ -6,7 +6,7 @@ import Technologies from "../components/Index/Technologies";
 import { GetRepository } from "../lib/Github";
 import os from "os";
 export default function Home({ repos, status, mac }) {
-  console.log(mac);
+  console.log(mac.eth0[0].mac);
 
   return (
     <>
