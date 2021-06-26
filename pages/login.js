@@ -36,7 +36,7 @@ export default function Login({ IPAdress }) {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
   useEffect(() => {
-    if (IPAdress != "95.70.146.105" && "18.212.147.239") {
+    if (IPAdress != process.env.NEXT_PUBLIC_IP) {
       router.push("/404");
     } else if (user) {
       router.push("/");
