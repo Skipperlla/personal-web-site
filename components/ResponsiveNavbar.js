@@ -1,8 +1,10 @@
 import { Transition } from "@headlessui/react";
 import NavList from "../config/ListItems.json";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import RenderThemeChangerResponsive from "../utils/RenderThemeChangerResponsive";
-const ResponsiveNavbar = ({ isOpen, setIsOpen }) => {
+const ResponsiveNavbar = ({ isOpen, setIsOpen, user }) => {
+  const router = useRouter();
   return (
     <Transition
       show={isOpen}
@@ -14,7 +16,7 @@ const ResponsiveNavbar = ({ isOpen, setIsOpen }) => {
       leaveTo="opacity-0 scale-95"
     >
       <div
-        className="xl:hidden rounded-md space-y-4 bg-gray-200 shadow-lg p-4 top-3 mx-auto z-20 absolute dark:bg-gray-800 w-11/12	"
+        className="xl:hidden rounded-md space-y-4 bg-gray-200 shadow-lg p-4 top-3 left-4 z-20 absolute dark:bg-gray-800 w-11/12	"
         id="mobile-menu"
       >
         <div className="flex text-gray-900 items-center justify-between dark:text-gray-100">
@@ -45,7 +47,30 @@ const ResponsiveNavbar = ({ isOpen, setIsOpen }) => {
             </Link>
           );
         })}
-
+        {user && (
+          <>
+            <Link href={"/createBlog"}>
+              <a
+                className={
+                  "rounded-md flex bg-gray-300 py-2 px-4 text-gray-800 justify-center dark:bg-gray-700 dark:text-gray-200"
+                }
+              >
+                Blog Ekle
+              </a>
+            </Link>{" "}
+            <button
+              className={
+                "rounded-md flex bg-gray-300 py-2 px-4 text-gray-800 justify-center dark:bg-gray-700 dark:text-gray-200 w-full"
+              }
+              onClick={() => {
+                auth.signOut();
+                router.push("/login");
+              }}
+            >
+              Logout
+            </button>
+          </>
+        )}
         <RenderThemeChangerResponsive />
       </div>
     </Transition>

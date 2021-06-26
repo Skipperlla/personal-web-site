@@ -4,6 +4,7 @@ import { NextSeo } from "next-seo";
 import Left from "../components/Daily/Left";
 import Right from "../components/Daily/Right";
 import OlderSongs from "../components/Daily/OlderSongs";
+import ResponsiveFollowMe from "../components/Index/ResponsiveFollowMe";
 export default function Daily({ status, nowPlaying, RecentlyPlayed }) {
   return (
     <>
@@ -34,6 +35,7 @@ export default function Daily({ status, nowPlaying, RecentlyPlayed }) {
         <div className="pt-10">
           <OlderSongs RecentlyPlayed={RecentlyPlayed.items} status={status} />
         </div>
+        <ResponsiveFollowMe />
       </div>
     </>
   );

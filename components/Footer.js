@@ -7,10 +7,10 @@ import author from "../config/author-meta.json";
 const Footer = () => {
   return (
     <footer
-      className="mt-7  border-green-400  md:w-full md:pt-5"
+      className=" border-green-400  md:w-full pt-10 xl:pt-0"
       style={{ borderBottomWidth: "7px" }}
     >
-      <div className="w-11/12 xl:w-7/12 grid md:grid-cols-1 w-11/12 md:mx-auto ">
+      <div className="w-11/12 xl:w-7/12 grid md:grid-cols-1 w-11/12 md:mx-auto pt-10">
         <div className="flex justify-between items-center w-11/12 md:w-full mx-auto">
           <p className="text-sm md:text-xl">
             © 2021 all rights reserved. Made with by{" "}
