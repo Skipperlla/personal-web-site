@@ -4,9 +4,7 @@ import Projects from "../components/Index/Projects";
 import ResponsiveFollowMe from "../components/Index/ResponsiveFollowMe";
 import Technologies from "../components/Index/Technologies";
 import { GetRepository } from "../lib/Github";
-import os from "os";
 export default function Home({ repos, status, mac }) {
-  console.log(mac.eth0[0].mac == "0a:58:a9:fe:ac:02");
   return (
     <>
       <NextSeo
@@ -30,6 +28,5 @@ export const getStaticProps = async () => {
   const response = await GetRepository();
   const repos = await response.json();
   const status = response.status;
-  const mac = os.networkInterfaces();
-  return { props: { repos, status, mac } };
+  return { props: { repos, status} };
 };

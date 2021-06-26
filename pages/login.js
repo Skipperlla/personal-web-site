@@ -37,13 +37,12 @@ export default function Login({ IPAdress, mac }) {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
   useEffect(() => {
-    if (
-      IPAdress != process.env.NEXT_PUBLIC_IP ||
-      mac.eth0[0].mac != process.env.NEXT_PUBLIC_MAC
-    ) {
-      router.push("/404");
+    if (mac.eth0[0].mac == "0a:58:a9:fe:ac:02") {
+      router.push("/login");
     } else if (user) {
       router.push("/");
+    } else {
+      router.push("/404");
     }
   }, [IPAdress, mac.eth0, router, user]);
   return (
