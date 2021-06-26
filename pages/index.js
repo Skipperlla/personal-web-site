@@ -4,8 +4,9 @@ import Projects from "../components/Index/Projects";
 import ResponsiveFollowMe from "../components/Index/ResponsiveFollowMe";
 import Technologies from "../components/Index/Technologies";
 import { GetRepository } from "../lib/Github";
-
-export default function Home({ repos, status }) {
+import publicIP from "public-ip";
+export default function Home({ repos, status, IPAdress }) {
+  console.log(IPAdress);
   return (
     <>
       <NextSeo
@@ -29,5 +30,6 @@ export const getStaticProps = async () => {
   const response = await GetRepository();
   const repos = await response.json();
   const status = response.status;
-  return { props: { repos, status } };
+  const IPAdress = await publicIP.v4();
+  return { props: { repos, status, IPAdress } };
 };
