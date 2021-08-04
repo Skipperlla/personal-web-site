@@ -41,7 +41,7 @@ export default function Blog({ allBlogs }) {
         <meta name="description" content="Skipperlla Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-<h1 style={{height: "731px",display: "flex",justifyContent: "center",alignItems: "center",fontSize: "24px"}}>Geliştirme Aşamasında</h1>
+<h1 style={{height: "751px",display: "flex",justifyContent: "center",alignItems: "center",fontSize: "24px"}}>Geliştirme Aşamasında</h1>
       {/* <div className="grid grid-cols-1   xl:grid-cols-3 gap-4 mt-10 mb-10">
         {blogs.map((newBlogs, index) => {
           return (
