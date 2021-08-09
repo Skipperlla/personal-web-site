@@ -5,7 +5,8 @@ import Left from "../components/Daily/Left";
 import Right from "../components/Daily/Right";
 import OlderSongs from "../components/Daily/OlderSongs";
 import ResponsiveFollowMe from "../components/Index/ResponsiveFollowMe";
-export default function Daily({ status, nowPlaying, RecentlyPlayed }) {
+export default function Daily({ status, RecentlyPlayed, nowPlaying }) {
+
   return (
     <>
       <NextSeo
@@ -23,11 +24,11 @@ export default function Daily({ status, nowPlaying, RecentlyPlayed }) {
           </div>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ">
             <Left
-              artist={nowPlaying.item.album.artists[0].name}
-              name={nowPlaying.item.name}
-              spotifyURL={nowPlaying.item.external_urls.spotify}
-              date={nowPlaying.timestamp}
-              isPlaying={nowPlaying.is_playing}
+              artist={nowPlaying?.item.album.artists[0].name}
+              name={nowPlaying?.item.name}
+              spotifyURL={nowPlaying?.item.external_urls.spotify}
+              date={nowPlaying?.timestamp}
+              isPlaying={nowPlaying?.is_playing}
             />
             <Right />
           </div>

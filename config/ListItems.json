@@ -1,6 +1,5 @@
 {
   "NavList": [
-    { "name": "Blog", "pathname": "/blog" },
     { "name": "Projects", "pathname": "/#projects" },
     { "name": "Daily", "pathname": "/daily" }
   ]

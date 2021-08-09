@@ -13,3 +13,6 @@
 iframe {
   left: 0px !important;
 }
+html {
+  scroll-behavior: smooth;
+}
