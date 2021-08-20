@@ -8,7 +8,7 @@ const BlogCard = () => {
           Different Ways to Fetch Data in React
         </h3>{" "}
         <ArrowNarrowRightIcon
-          className="w-7 h-7 font-light text-gray-300 "
+          className="w-7 h-7 font-light text-gray-300 hidden sm:block"
           aria-hidden="true"
         />
       </div>
