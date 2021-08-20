@@ -1,6 +1,7 @@
 {
-  "NavList": [
-    { "name": "Projects", "pathname": "/#projects" },
-    { "name": "Daily", "pathname": "/daily" }
+  "ListItems": [
+    { "title": "Home", "target": "/" },
+    { "title": "About", "target": "/about" },
+    { "title": "Blog", "target": "/blog" }
   ]
 }
