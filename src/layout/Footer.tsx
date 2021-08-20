@@ -4,7 +4,7 @@ import React from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 const Footer = () => {
-  const { data, error } = useSWR("http://localhost:3000/api/spotify", fetcher);
+  const { data, error } = useSWR("api/spotify", fetcher);
   const router = useRouter();
   return (
     <footer>
