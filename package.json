@@ -18,6 +18,7 @@
     "@types/react-fontawesome": "^1.6.5",
     "framer-motion": "^4.1.17",
     "next": "11.1.0",
+    "next-seo": "^4.26.0",
     "query-string": "^7.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -27,6 +28,7 @@
     "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.7",
     "@types/query-string": "^6.3.0",
     "@types/react": "17.0.19",
     "@types/react-router-dom": "^5.1.8",
