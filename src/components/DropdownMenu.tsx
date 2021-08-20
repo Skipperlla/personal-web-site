@@ -34,7 +34,7 @@ const DropdownMenu = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <div className="absolute z-10 px-0 mt-3 BalooThambi2-Regular">
+        <div className="absolute z-10 px-0 mt-3 BalooThambi2-Regular right-3 sm:right-1/4">
           <div className="overflow-hidden border rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 border-coolGray-300">
             <div className="relative grid gap-6 px-5 py-6 bg-white">
               <a
