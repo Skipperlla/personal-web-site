@@ -39,7 +39,7 @@ const DropdownMenu = () => {
             <div className="relative grid gap-6 px-5 py-6 bg-white">
               <a
                 aria-label="Send me an Email"
-                href="oesmer437@gmail.com"
+                href="mailto:oesmer437@gmail.com"
                 className="flex items-center p-3 -mx-2 -my-3 transition-colors duration-150 ease-in-out rounded-md group hover:bg-gray-100"
               >
                 <span className="mr-4">
