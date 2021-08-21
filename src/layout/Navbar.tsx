@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Logo from '../../public/logo.svg'
+import Logo from "../../public/logo.svg";
 import { useRouter } from "next/dist/client/router";
 import DropdownMenu from "@components/DropdownMenu";
 import Items from "../../config/ListItems.json";
@@ -15,7 +15,7 @@ const Navbar = () => {
           alt=""
           width={80}
           height={80}
-          className="object-cover"
+          className="object-cover flex items-center justify-center"
         />
         <ul className="flex">
           {Items.ListItems.map((child, index) => {
@@ -23,7 +23,8 @@ const Navbar = () => {
               <Link href={child.target} key={index}>
                 <a
                   className={`text-xl  BalooThambi2-Regular ml-6  text-gray-900   transition-colors duration-200 ease-in-out hover:text-gray-300 ${
-                    child.target === router.pathname && " border-b-2 border-gray-300 -mb-1"
+                    child.target === router.pathname &&
+                    " border-b-2 border-gray-300 -mb-1"
                   }`}
                 >
                   <span className="pb-1">{child.title}</span>

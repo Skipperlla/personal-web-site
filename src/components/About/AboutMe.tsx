@@ -7,12 +7,15 @@ const AboutMe = () => {
         Recent Blogs
       </h1>
       <p className="text-gray-700 BalooThambi2-Regular text-xl">
-        Hi my name is Ömer Esmer.I was born in Turkey/Istanbul. 2 year ago I
-        started programming with Node.js for write web apps. I mostly use
-        Javascript and Typescript these are my favourites. after I learn
-        Typescript I started learn React. For starting I was hate Next.js
-        because at that time it was boring. at now I love React and Next.js,
-        thanks for reading good bye.
+        Two years ago, I was introduced to programming for the first time and
+        started developing software professionally for about a year. I clearly
+        remember writing my first lines of code, getting stuck, finding the
+        problem and fixing it. At this point, I realized that there was a
+        rewarding feeling I experienced when the app ran. I quickly learned what
+        I wanted to be in life. Since then my passion has never changed, I`ve
+        gained more skills along the way. <br />
+        <br /> When I`m not working, I learn Adobe Premiere Pro and Adobe
+        Photoshop to improve myself and learn new skills.
       </p>
     </section>
   );

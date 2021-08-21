@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 const Footer = () => {
   const { data, error } = useSWR("api/spotify", fetcher);
   const router = useRouter();
+  console.log(data)
   return (
     <footer>
       <div className="flex flex-col items-center justify-center mb-4 space-y-3">
