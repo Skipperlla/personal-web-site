@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Logo from "../../public/logo.svg";
+import Logo from "../../public/avatar.png";
 import { useRouter } from "next/dist/client/router";
 import DropdownMenu from "@components/DropdownMenu";
 import Items from "../../config/ListItems.json";
@@ -13,9 +13,9 @@ const Navbar = () => {
         <Image
           src={Logo}
           alt=""
-          width={80}
-          height={80}
-          className="object-cover flex items-center justify-center"
+          width={50}
+          height={50}
+          className="object-cover flex items-center justify-center rounded-full"
         />
         <ul className="flex">
           {Items.ListItems.map((child, index) => {
