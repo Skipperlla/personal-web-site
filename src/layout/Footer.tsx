@@ -6,54 +6,46 @@ import { useRouter } from "next/router";
 const Footer = () => {
   const { data, error } = useSWR("api/spotify", fetcher);
   const router = useRouter();
-  console.log(data.isPlaying);
   return (
     <footer>
       <div className="flex flex-col items-center justify-center mb-4 space-y-3">
         <div
           className={`flex items-center justify-center hover:shadow-md transition-shadow duration-200 ease-in-out ${
-            data?.song.is_playing ||
-            (data.isPlaying === false && "cursor-pointer")
+            data?.song.is_playingyarn && "cursor-pointer"
           }`}
           onClick={() =>
-            data?.song.is_playing ||
-            (data.isPlaying === false &&
-              window.open(data?.song.item.external_urls.spotify, "_ blank"))
+            data?.song.is_playing &&
+            window.open(data?.song.item.external_urls.spotify, "_ blank")
           }
         >
           <div className="relative flex flex-row items-center p-2 space-x-2 border border-gray-300 rounded w-80 h-21">
             <div className="flex-shrink-0 w-16 h-16 bg-gray-100 border border-transparent border-solid rounded">
-              {data?.song.is_playing ||
-                (data.isPlaying === false && (
-                  <motion.img
-                    src={data?.song.item.album.images[0].url}
-                    className="object-cover"
-                  />
-                ))}
+              {data?.song.is_playing && (
+                <motion.img
+                  src={data?.song.item.album.images[0].url}
+                  className="object-cover"
+                />
+              )}
             </div>
             <span className="space-y-1 w-[10.5rem]">
               <div
                 className="text-lg font-medium truncate"
                 style={{ width: "207px" }}
                 title={
-                  data?.song.is_playing || data.isPlaying === false
-                    ? data?.song.item.name
-                    : "Not Listening"
+                  data?.song.is_playing ? data?.song.item.name : "Not Listening"
                 }
               >
-                {data?.song.is_playing || data.isPlaying === false
-                  ? data?.song.item.name
-                  : "Not Listening"}
+                {data?.song.is_playing ? data?.song.item.name : "Not Listening"}
               </div>
               <div
                 className="text-xs text-gray-500"
                 title={
-                  data?.song.is_playing || data.isPlaying === false
+                  data?.song.is_playing
                     ? data?.song.item.artists[0].name
                     : "Not Listening"
                 }
               >
-                {data?.song.is_playing || data.isPlaying === false
+                {data?.song.is_playing
                   ? data?.song.item.artists[0].name
                   : "Not Listening"}
               </div>
