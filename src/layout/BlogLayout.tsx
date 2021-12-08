@@ -1,5 +1,7 @@
 import React from "react";
 
-export const BlogLayout = () => {
+const BlogLayout = ({ children, frontMatter }) => {
   return <div></div>;
 };
+
+export default BlogLayout;

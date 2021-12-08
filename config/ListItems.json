@@ -1,7 +1,0 @@
-{
-  "ListItems": [
-    { "title": "Home", "target": "/" },
-    { "title": "About", "target": "/about" },
-    { "title": "Blog", "target": "/blog" }
-  ]
-}

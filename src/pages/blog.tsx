@@ -1,91 +1,50 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import Image from "next/image";
-import Gif from "../../public/animated-under-construction-image-0035.gif";
+import { getAllFilesFrontMatter } from "@lib/mdx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import BlogCard from "@components/Blog/BlogCard";
 interface IBlog {
   posts: any;
 }
+
 export default function Blog({ posts }: IBlog) {
+  console.log(posts);
   return (
-    <article className="h-screen flex items-center justify-center">
+    <>
       <NextSeo
         title="Blog | Ömer Esmer - Web Developer"
         description="Ömer Esmer is a web developer currently based in Turkey. Contact him at oesmer437@gmail.com"
       />
-      <h1></h1>
-      <div className="flex items-center mt-2 mb-16 uppercase">
-        <div className="flex items-center">
-          <div className="flex">
-            <div
-              style={{
-                display: "inline-block",
-                maxWidth: "100%",
-                overflow: "hidden",
-                position: "relative",
-                boxSizing: "border-box",
-                margin: "0px",
-              }}
-            >
-              <div
-                style={{
-                  boxSizing: "border-box",
-                  display: "block",
-                  maxWidth: "100%",
-                }}
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                  style={{
-                    maxWidth: "100%",
-                    display: "block",
-                    margin: "0px",
-                    border: "none",
-                    padding: "0px",
-                  }}
-                />
-              </div>
-              <img
-                alt="Drawing of me"
-                className="border border-gray-500 border-solid rounded-full"
-                srcSet="/_next/image?url=%2Fimages%2Fme.png&w=48&q=75 1x, /_next/image?url=%2Fimages%2Fme.png&w=96&q=75 2x"
-                src="/_next/image?url=%2Fimages%2Fme.png&w=96&q=75"
-                decoding="async"
-                data-nimg="true"
-                style={{
-                  position: "absolute",
-                  inset: "0px",
-                  boxSizing: "border-box",
-                  padding: "0px",
-                  border: "none",
-                  margin: "auto",
-                  display: "block",
-                  width: "0px",
-                  height: "0px",
-                  minWidth: "100%",
-                  maxWidth: "100%",
-                  minHeight: "100%",
-                  maxHeight: "100%",
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-col ml-2.5">
-            <span className="m-0 text-sm font-semibold leading-5 tracking-wide text-gray-700">
-              Alan Yang
-            </span>
-            <span className="m-0 text-xs font-medium leading-4 tracking-wide text-gray-500">
-              5 min read -&nbsp;<time dateTime="2021-07-08">Jul 08, 2021</time>
-            </span>
-          </div>
+      <section className="">
+        <h1 className="text-4xl font-semibold BalooThambi2-SemiBold mb-2">
+          Blog
+        </h1>
+        <div className="flex border rounded hover:shadow py-1 px-4">
+          <input className="text-gray-700  text-xl w-full  flex-1" />
+          <button>
+            <FontAwesomeIcon icon="search" />
+          </button>
         </div>
-      </div>
-    </article>
+      </section>
+      <section className="mt-6">
+        {posts.map((items, index) => {
+          return (
+            <BlogCard
+              slug={items.slug}
+              title={items.title}
+              publishedAt={items.publishedAt}
+              summary={items.summary}
+              key={index}
+            />
+          );
+        })}
+      </section>
+    </>
   );
 }
 
 export async function getStaticProps() {
-  //TODO fetch blog psots
+  const posts = await getAllFilesFrontMatter("blog");
   return { props: { posts } };
 }
